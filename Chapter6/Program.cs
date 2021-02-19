@@ -13,16 +13,14 @@ namespace Chapter
             int units = digit % 10;
             Console.WriteLine("Базовые числа: thousands = " + thousands + " ,hundreds = " + hundreds + " ,dozens = " + dozens + ", units = " + units);
 
-            byte max1 = (byte)Math.Max(thousands, hundreds);
-            byte min1 = (byte)Math.Min(thousands, hundreds);
-            byte max2 = (byte) Math.Max(dozens, units);
-            byte min2 = (byte) Math.Min(dozens, units);
-            byte max3 = Math.Max(max1, max2);
-            byte min3 = Math.Min(max1, max2);
-            byte max4 = Math.Max(min1, min2);
-            byte min4 = Math.Min(min1, min2);
+            int first = Math.Max(Math.Max(thousands, hundreds), Math.Max(dozens, units));
+            int fourth = Math.Min(Math.Min(thousands, hundreds), Math.Min(dozens, units));
+            int second = Math.Min(Math.Max(thousands, hundreds), Math.Max(dozens, units));
+            int third = Math.Max(Math.Min(thousands, hundreds), Math.Min(dozens, units));
+            int n2 = Math.Max(second, third);
+            int n3 = Math.Min(second, third);
             
-            Console.WriteLine(max3 + "" + min3 + "" + max4 + "" + min4);
+            Console.WriteLine(first + "" + n2 + "" + n3 + "" + fourth);
         }
     }
 }
